@@ -71,7 +71,7 @@ const QuizScreen: React.FC<QuizScreenProps> = ({ navigation, route }) => {
         navigation.navigate('Result', {
           score: isCorrect ? score + 1 : score,
           category,
-          results: [...results, newResult]
+          results: [...results, newResult],
         });
       }, 0);
     }
