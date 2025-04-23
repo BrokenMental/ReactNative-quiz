@@ -1,0 +1,38 @@
+[
+  {
+    "category": "JavaScript",
+    "question": "리액트 네이티브는 어떤 언어 기반인가요?",
+    "options": ["Python", "C++", "Java", "JavaScript", "Swift"],
+    "answer": 3
+  },
+  {
+    "category": "React",
+    "question": "React에서 상태를 관리하는 데 주로 사용하는 Hook은?",
+    "options": ["useEffect", "useState", "useContext", "useReducer", "useMemo"],
+    "answer": 1
+  },
+  {
+    "category": "TypeScript",
+    "question": "TypeScript에서 타입을 선언할 때 사용하는 키워드는?",
+    "options": ["let", "type", "interface", "class", "extends"],
+    "answer": 1
+  },
+  {
+    "category": "JavaScript",
+    "question": "JavaScript에서 배열의 길이를 확인하는 방법은?",
+    "options": [".size", ".length", ".count", ".index", ".values"],
+    "answer": 1
+  },
+  {
+    "category": "React",
+    "question": "React에서 컴포넌트를 생성하는 기본 함수는?",
+    "options": ["render", "useEffect", "createElement", "setState", "componentDidMount"],
+    "answer": 2
+  },
+  {
+    "category": "TypeScript",
+    "question": "TypeScript에서 클래스 멤버 접근 제한을 설정할 때 사용하는 키워드는?",
+    "options": ["public", "static", "readonly", "private", "abstract"],
+    "answer": 3
+  }
+]
