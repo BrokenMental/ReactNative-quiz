@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet, ToastAndroid, BackHandler } from 'react-native';
+import { View, Text, StyleSheet, ToastAndroid, BackHandler } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useFocusEffect } from '@react-navigation/native';
 import { RootStackParamList } from '../../App';
+import AnimatedButton from '../components/AnimatedButton';
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
@@ -34,8 +35,8 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>퀴즈 앱에 오신 것을 환영합니다!</Text>
-      <Button title="퀴즈 풀기" onPress={() => navigation.navigate('Category')} />
-      <Button
+      <AnimatedButton title="퀴즈 풀기" onPress={() => navigation.navigate('Category')} />
+      <AnimatedButton
         title="오답노트"
         onPress={() =>
           navigation.reset({
@@ -54,8 +55,8 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  title: { fontSize: 24, marginBottom: 20 },
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFFFFF' },
+  title: { fontSize: 24, fontWeight: 'bold', color: '#000000', marginBottom: 20 },
 });
 
 export default HomeScreen;
