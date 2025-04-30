@@ -25,30 +25,8 @@ const App: React.FC = () => {
       <Stack.Navigator initialRouteName="Home"
         screenOptions={{
           headerShown: false, // 상단 헤더 숨기기
-          cardStyle: { backgroundColor: '#FFFFFF' }, // 기본 화면 배경
+          contentStyle: { backgroundColor: '#FFFFFF' }, // 기본 화면 배경
           gestureEnabled: true, // 스와이프 제스처로 뒤로 가기 활성화
-          transitionSpec: {
-            open: {
-              animation: 'timing', // 화면 열릴 때의 애니메이션
-              config: { duration: 500 }, // 500ms 지속
-            },
-            close: {
-              animation: 'spring', // 화면 닫힐 때 스프링 애니메이션
-              config: { stiffness: 1000, damping: 500 },
-            },
-          },
-          cardStyleInterpolator: ({ current, layouts }) => ({
-            cardStyle: {
-              transform: [
-                {
-                  translateX: current.progress.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [layouts.screen.width, 0], // 오른쪽에서 왼쪽으로 이동
-                  }),
-                },
-              ],
-            },
-          }),
         }}
         >
         <Stack.Screen name="Home" component={HomeScreen} options={{ title: '퀴즈 앱' }} />
