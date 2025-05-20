@@ -45,7 +45,11 @@ const QuizScreen: React.FC<QuizScreenProps> = ({ navigation, route }) => {
         const data = await response.json();
         // 백엔드에서 받아온 전체 데이터 중 category가 일치하는 데이터만 필터링
         const filtered = (data as QuizItem[]).filter((item) => item.category === category);
-        setFilteredQuestions(filtered);
+        // 필터링된 데이터를 랜덤으로 섞습니다.
+        const shuffled = filtered.sort(() => Math.random() - 0.5);
+        // 최대 10문제만 선택합니다.
+        const selectedQuestions = shuffled.slice(0, 10);
+        setFilteredQuestions(selectedQuestions);
       } catch (error) {
         console.error('퀴즈 데이터를 가져오는데 실패했습니다:', error);
       } finally {
@@ -110,6 +114,11 @@ const QuizScreen: React.FC<QuizScreenProps> = ({ navigation, route }) => {
     <View style={styles.container}>
       {currentQuestionIndex < filteredQuestions.length ? (
         <>
+          <View style={styles.questionTracker}>
+            <Text style={styles.questionTrackerText}>
+              {currentQuestionIndex + 1} / {filteredQuestions.length}
+            </Text>
+          </View>
           <View style={styles.questionContainer}>
             <Text style={styles.question}>
               {filteredQuestions[currentQuestionIndex].question}
@@ -144,8 +153,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     padding: 20,
   },
+  questionTracker: {
+    position: 'absolute',
+    top: 20,
+    right: 20,
+    backgroundColor: '#007AFF',
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderRadius: 5,
+  },
+  questionTrackerText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
   questionContainer: {
-    width: '95%', // 질문 텍스트 영역을 화면 너비의 95%로 제한
+    width: '95%',
     marginBottom: 20,
   },
   question: {
